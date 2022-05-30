@@ -20,7 +20,6 @@ fun load(context: AppCompatActivity) {
     readFromFile(context)
 }
 
-
 private fun readFromFile(context: Context) {
     try {
         val inputStream: InputStream? = context.openFileInput("token.txt")

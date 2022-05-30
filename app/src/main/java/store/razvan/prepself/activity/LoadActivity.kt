@@ -42,7 +42,6 @@ class LoadActivity : AppCompatActivity() {
             thread.join()
         }
 
-
         loadLogoImageView.post {
             Blurry.with(context)
                 .radius(15)

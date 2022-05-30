@@ -77,6 +77,8 @@ class MainScreenActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
 
+
+
     }
 
     private fun clickListeners() {
