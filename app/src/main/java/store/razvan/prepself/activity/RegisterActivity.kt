@@ -38,12 +38,9 @@ class RegisterActivity : AppCompatActivity() {
             val password = passwordInput.text.toString()
             val firstName = firstNameInput.text.toString()
             val lastName = lastNameInput.text.toString()
-            val thread = thread  {
+            thread(start=true){
                 registerUser(this, firstName, lastName, email, password)
-            }
-
-            thread.start()
-            thread.join()
+            }.join()
         }
 
         setContentView(binding.root)

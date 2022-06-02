@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.util.Log
 import android.util.TypedValue
 import android.widget.Toast
@@ -21,7 +24,7 @@ import store.razvan.prepself.models.RecipeResponse
 
 var client = OkHttpClient()
 var json = "application/json; charset=utf-8".toMediaTypeOrNull()
-var URL = "https://api.prepself.razvan.store/api/v1/"
+var URL = "http://192.168.4.147:8080/api/v1/"
 val mapper = ObjectMapper().registerModule(JavaTimeModule())
 
 fun openActivity(context: AppCompatActivity, clz: Class<*>) {
@@ -45,7 +48,7 @@ fun openFridgeActivity(context: AppCompatActivity) {
 }
 
 fun openChecklistActivity(context: AppCompatActivity) {
-    context.startActivity(Intent(context, ChecklistActivity::class.java))
+    context.startActivity(Intent(context, CheckListActivity::class.java))
     context.finish();
 }
 
@@ -110,3 +113,19 @@ fun displayMessage(context: AppCompatActivity, text: String) {
 fun Int.dpToPixels(context: Context): Int = TypedValue.applyDimension(
     TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
 ).toInt()
+
+// extension function to get rounded corners border
+fun roundedCornersDrawable(
+    borderWidth: Int = 10, // border width in pixels
+    borderColor: Int = Color.BLACK, // border color
+    cornerRadius: Float = 25F, // corner radius in pixels
+    bgColor: Int = Color.TRANSPARENT // view background color
+): Drawable {
+    return GradientDrawable().apply {
+        shape = GradientDrawable.RECTANGLE
+        setStroke(borderWidth, borderColor)
+        setColor(bgColor)
+        // make it rounded corners
+        this.cornerRadius = cornerRadius
+    }
+}

@@ -47,10 +47,8 @@ class OnSwipeTouchListener(var context: AppCompatActivity?) : OnTouchListener {
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     if (Math.abs(diffX) > Companion.SWIPE_THRESHOLD && Math.abs(velocityX) > Companion.SWIPE_VELOCITY_THRESHOLD) {
                         if (diffX > 0) {
-                            Toast.makeText(context, "Right", Toast.LENGTH_SHORT).show()
                             swipeRight.run()
                         } else {
-                            Toast.makeText(context, "Left", Toast.LENGTH_SHORT).show()
                             swipeLeft.run()
                         }
                         result = true

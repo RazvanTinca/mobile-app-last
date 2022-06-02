@@ -44,10 +44,7 @@
             android:name=".activity.RecipeListActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.UserProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ChecklistActivity"
+            android:name=".activity.CheckListActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainScreenActivity"
